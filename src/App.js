@@ -7,10 +7,10 @@ export default function App() {
     <div>
       <h1>Kanban board</h1>
       <div className="stage-container">
-        <Stage />
-        <Stage />
-        <Stage />
-        <Stage />
+        <Stage title="ToDo" />
+        <Stage title="Tasks" />
+        <Stage title="Tasks" />
+        <Stage title="Tasks" />
       </div>
     </div>
   );

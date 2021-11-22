@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import './Style.css';
 
-const Tasks = () => {
+const Tasks = ({ listTasks }) => {
   return (
-    <div>
-      </div>
-  )
-}
+    <div className="container">
+      {listTasks.map((Tasks, index) => {
+        return (
+          <div className="indiviual-tasks" key={index}>
+            <label>{Tasks}</label>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 export default Tasks;

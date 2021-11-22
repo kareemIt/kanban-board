@@ -1,5 +1,10 @@
 .container {
-  display: flex;
-  flex-direction:;
   border: 1px black solid;
+  padding: 10px;
+  margin: 10px;
 }
+/* .task-containers {
+  border: 1px black solid;
+  padding: 10px;
+  margin: 10px;
+} */
