@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './Style.css';
-import Tasks from './Tasks';
+import Task from './Task';
 
 const Stage = ({ title }) => {
   const [isnewTask, setIsNewTask] = useState(false);
   const [newTask, setNewTask] = useState('');
   const [listTasks, setListTasks] = useState([]);
+  const [seleceted, setSelected] = useState(false);
 
   function addingNewTask() {
     setIsNewTask(!isnewTask);
+  }
+  function isSelected() {
+    setSelected(!seleceted);
   }
 
   function confirmNewTask() {
@@ -16,7 +20,6 @@ const Stage = ({ title }) => {
     if (newTask == '') return;
     setNewTask(newTask);
     setListTasks(listTasks.concat(newTask));
-    console.log(listTasks);
   }
 
   function userInput(e) {
@@ -27,7 +30,19 @@ const Stage = ({ title }) => {
     <div className="container">
       <p>{title}</p>
       <div className="task-containers">
-        <Tasks listTasks={listTasks} />
+        {listTasks.map((Tasks, index) => {
+          return (
+            <div
+              className={
+                seleceted ? 'indviudal-task-clicked' : 'indviudal-task'
+              }
+              key={index}
+              onClick={isSelected}
+            >
+              <Task Task={Tasks} />
+            </div>
+          );
+        })}
       </div>
 
       {isnewTask || <button onClick={addingNewTask}>Add Task</button>}
