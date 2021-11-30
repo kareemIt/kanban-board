@@ -6,13 +6,11 @@ const Stage = ({ title }) => {
   const [isnewTask, setIsNewTask] = useState(false);
   const [newTask, setNewTask] = useState('');
   const [listTasks, setListTasks] = useState([]);
-  const [seleceted, setSelected] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selected, setSelected] = useState(false);
 
   function addingNewTask() {
     setIsNewTask(!isnewTask);
-  }
-  function isSelected() {
-    setSelected(!seleceted);
   }
 
   function confirmNewTask() {
@@ -34,12 +32,17 @@ const Stage = ({ title }) => {
           return (
             <div
               className={
-                seleceted ? 'indviudal-task-clicked' : 'indviudal-task'
+                selectedIndex == index
+                  ? 'indviudal-task-clicked'
+                  : 'indviudal-task'
               }
               key={index}
-              onClick={isSelected}
+              onClick={() => {
+                setSelectedIndex(index);
+                setSelected(!selected);
+              }}
             >
-              <Task Task={Tasks} />
+              <Task Task={Tasks} selected={selected} />
             </div>
           );
         })}

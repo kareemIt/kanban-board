@@ -3,14 +3,18 @@ import './style.css';
 import Stage from './components/Stage';
 
 export default function App() {
+  const colummns = ['ToDo', 'Tasks', 'Tasks', 'Tasks'];
   return (
     <div>
       <h1>Kanban board</h1>
       <div className="stage-container">
-        <Stage title="ToDo" />
-        <Stage title="Tasks" />
-        <Stage title="Tasks" />
-        <Stage title="Tasks" />
+        {colummns.map((Tasks, index) => {
+          return (
+            <div className="individual-task" key={index}>
+              <Stage title={Tasks} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
