@@ -4,6 +4,8 @@ import Stage from './components/Stage';
 
 export default function App() {
   const colummns = ['ToDo', 'Tasks', 'Tasks', 'Tasks'];
+  // const [listTasks, setListTasks] = useState([[],[],[],[]]);
+
   return (
     <div>
       <h1>Kanban board</h1>
@@ -11,7 +13,7 @@ export default function App() {
         {colummns.map((Tasks, index) => {
           return (
             <div className="individual-task" key={index}>
-              <Stage title={Tasks} />
+              <Stage title={Tasks} listOfTasks={listTasks} />
             </div>
           );
         })}

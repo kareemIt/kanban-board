@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import './Style.css';
 import Task from './Task';
 
-const Stage = ({ title }) => {
+const Stage = ({ title, listOfTasks }) => {
   const [isnewTask, setIsNewTask] = useState(false);
   const [newTask, setNewTask] = useState('');
-  const [listTasks, setListTasks] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [selected, setSelected] = useState(false);
 
